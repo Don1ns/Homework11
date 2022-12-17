@@ -8,10 +8,7 @@ public class Main {
     }
 
     public static void printLeapYear(int year){
-        if (year % 4 == 0 && year %  100 > 0){
-            System.out.println(year + " год является високосным");
-        }
-        else if (year % 400 == 0){
+        if ((year % 4 == 0 && year %  100 > 0) || year % 400 == 0){
             System.out.println(year + " год является високосным");
         }
         else{
@@ -46,27 +43,27 @@ public class Main {
         printAppVersion(clientOS, clientDeviceYear);
 
     }
-    public static void countDays(int distance){
+    public static int countDays(int distance){
         int days = 1;
         if (distance < 20){
-            System.out.println("Потребуется дней: " + days);
         }
         else if (distance >= 20 && distance < 60){
             days += 1;
-            System.out.println("Потребуется дней: " + days);
         }
-        else if (distance >= 60 && distance < 100) {
+        else {
             days += 2;
-            System.out.println("Потребуется дней: " + days);
         }
-        else{
-            System.out.println("Свыше 100 км доставки нет");
-        }
+        return days;
     }
     public static void task3() {
         System.out.println("Задача 3");
-        int deliveryDistance = 95;
-        countDays(deliveryDistance);
+        int deliveryDistance = 100;
+        if (deliveryDistance >= 100){
+            System.out.println("Свыше 100 км доставки нет");
+        }
+        else{
+            System.out.println("Потребуется дней: " + countDays(deliveryDistance));
+        }
 
     }
 
